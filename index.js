@@ -5,11 +5,15 @@ const express = require('express');
 const _ = require('lodash');
 const { Webhook } = require("standardwebhooks");
 const DodoPaymentWrapper = require('./dodopayments');
+const cors = require('cors');
 
 const app = express();
 const PORT = 3000;
 
 app.use(express.json());
+// enable cors
+app.use(cors());
+app.options('*', cors());
 
 const pushContactToEmailer = async (name, email, group, status, link) => {
     fetch(`${process.env.EZ_EMAILER_URL}/api/contacts`, {
