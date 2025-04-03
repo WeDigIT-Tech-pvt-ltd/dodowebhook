@@ -9,7 +9,7 @@ class DodoPaymentWrapper {
 
     async getAllPurchases() {
         try {
-            const payment = await this.client.payments.list({ page_number: 100 });
+            const payment = await this.client.payments.list({ status: 'succeeded', page_size: 100 });
             return payment.items.length;
         } catch (error) {
             console.error('Error getting payment:', error);

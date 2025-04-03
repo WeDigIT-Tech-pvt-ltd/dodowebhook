@@ -51,9 +51,9 @@
     "axios": "^1.8.4",
     "cross-env": "^7.0.3",
     "dodopayments": "^1.11.0",
+    "dotenv": "^16.4.7",
     "express": "^5.1.0",
     "lodash": "^4.17.21",
-    "dotenv": "^8.2.0",
     "standardwebhooks": "^1.0.0"
   },
   "devDependencies": {
