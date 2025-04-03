@@ -3,7 +3,7 @@ const DodoPayments = require('dodopayments');
 class DodoPaymentWrapper {
     constructor() {
         this.client =  new DodoPayments({
-            bearerToken: process.env['DODO_PAYMENTS_API_KEY'], // This is the default and can be omitted
+            bearerToken: process.env.DODO_PAYMENTS_API_KEY, // This is the default and can be omitted
         });
     }
 
