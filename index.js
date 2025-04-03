@@ -46,6 +46,7 @@ app.post('/dodopayment/webhook', async (req, res) => {
     if(_.isEqual(samePayloadOutput, req.body)) {
         let responseData = req.body;
 
+        console.log('DODO Response', JSON.stringify(responseData));
         let email = responseData.customer.email;
 
         if (responseData.payment_id) {
