@@ -42,6 +42,8 @@ app.post('/dodopayment/webhook', async (req, res) => {
     if(_.isEqual(samePayloadOutput, req.body)) {
         let responseData = req.body;
 
+        let email = responseData.customer.email;
+
         if (responseData.payment_id) {
             await pushContactToEmailer('Customer', email, 'customer', 'unsubscribed', '');
         } else {
