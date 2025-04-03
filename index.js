@@ -44,12 +44,11 @@ app.post('/dodopayment/webhook', async (req, res) => {
     const samePayloadOutput = await webhook.verify(raw, webhookHeaders);
 
     if(_.isEqual(samePayloadOutput, req.body)) {
-        let responseData = req.body;
+        let responseData = req.body.data;
 
-        console.log('DODO Response', JSON.stringify(responseData));
         let email = responseData.customer.email;
 
-        if (responseData.payment_id) {
+        if (req.body.type === 'payment.succeeded' && responseData.payment_id && responseData.status === 'succeeded') {
             await pushContactToEmailer('Customer', email, 'customer', 'unsubscribed', '');
         } else {
             console.error('Invalid data in DODO Response');
