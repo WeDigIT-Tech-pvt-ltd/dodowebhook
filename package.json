@@ -12,6 +12,7 @@
     "start": "pm2 start ecosystem.config.json --no-daemon",
     "dev": "cross-env NODE_ENV=development nodemon src/index.js",
     "test": "jest -i",
+    "dotenv": "^8.2.0",
     "test:watch": "jest -i --watchAll",
     "coverage": "jest -i --coverage",
     "test:ci": "jest --config ./jest.config.js --collectCoverage --coverageDirectory=\"./coverage\" --ci --reporters=default --reporters=jest-junit --watchAll=false",

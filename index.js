@@ -1,7 +1,11 @@
 const express = require('express');
 const _ = require('lodash');
+const dotenv = require('dotenv');
+const path = require('path');
 const { Webhook } = require("standardwebhooks");
 const DodoPaymentWrapper = require('./dodopayments');
+
+dotenv.config({ path: path.join(__dirname, './env') });
 
 const app = express();
 const PORT = 3000;
